@@ -30,14 +30,16 @@ export function Lower() {
 
   useEffect(() => {
     if (isLoading) return;
-    lowerInput.current.value = toFix(dollar / data.data[token[lowerType]].usd);
+    lowerInput.current.value = toFix(
+      dollar / data.data[token[lowerType]].usd
+    ).toFixed(10);
   }, [dollar]);
   return (
     <div className="swap-input">
       <div className="swap-number-info">
         <input placeholder="0" onChange={inputEvent} ref={lowerInput} />
         <div className="swap-converted">
-          {isLoading || dollar === 0 ? "" : `$${dollar}`}
+          {isLoading || dollar === 0 ? "" : `$${dollar.toFixed(10)}`}
         </div>
       </div>
       <span className="swap-type" onClick={() => setModal("lower")}>

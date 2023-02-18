@@ -1,3 +1,3 @@
 export function toFix(n: number) {
-  return Number(n.toFixed(10));
+  return Math.floor(n * 10000000000) / 10000000000;
 }

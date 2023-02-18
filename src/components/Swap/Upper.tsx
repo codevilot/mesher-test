@@ -30,14 +30,16 @@ export function Upper() {
 
   useEffect(() => {
     if (isLoading) return;
-    upperInput.current.value = toFix(dollar / data.data[token[upperType]].usd);
+    upperInput.current.value = toFix(
+      dollar / data.data[token[upperType]].usd
+    ).toFixed(10);
   }, [dollar]);
   return (
     <div className="swap-input">
       <div className="swap-number-info">
         <input placeholder="0" onChange={inputEvent} ref={upperInput} />
         <div className="swap-converted">
-          {isLoading || dollar === 0 ? "" : `$${dollar}`}
+          {isLoading || dollar === 0 ? "" : `$${dollar.toFixed(10)}`}
         </div>
       </div>
       <span className="swap-type" onClick={() => setModal("upper")}>
