@@ -42,7 +42,7 @@ export function List({ keyword }: IList) {
     <div className="token-list select">
       {Object.entries(token)
         .filter(([key, value]) => {
-          if (key.includes(keyword) || value.includes(keyword))
+          if (key.toUpperCase().includes(keyword.toUpperCase()))
             return [key, value];
         })
 
