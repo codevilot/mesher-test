@@ -21,7 +21,7 @@ export function List({ keyword }: IList) {
       const selectedToken = target
         .closest(".token-item")
         .querySelector(".token-title").innerHTML as ids;
-
+      console.log(modal);
       if (modal === "upper") {
         if (selectedToken === lowerType) setLowerType(upperType);
         setUpperType(selectedToken);

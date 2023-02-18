@@ -16,6 +16,10 @@ export function Lower() {
       axios.get(
         `https://api.coingecko.com/api/v3/simple/price?vs_currencies=USD&ids=${token[lowerType]}`
       ),
+    onSuccess: (data) =>
+      setDollar(
+        toFix(lowerInput.current.value * data.data[token[lowerType]].usd)
+      ),
     staleTime: 5000,
     cacheTime: Infinity,
   });
@@ -36,7 +40,7 @@ export function Lower() {
           {isLoading || dollar === 0 ? "" : `$${dollar}`}
         </div>
       </div>
-      <span className="swap-type" onClick={() => setModal("upper")}>
+      <span className="swap-type" onClick={() => setModal("lower")}>
         {lowerType}
       </span>
     </div>
