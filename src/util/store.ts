@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 import { ids } from "./token";
-
+import { getRecentList } from "./getRecentList";
 const $State = atom({
   key: "$State",
   default: 0,
@@ -20,4 +20,8 @@ const modalState = atom({
   key: "modal",
   default: null,
 });
-export { $State, upperTypeState, lowerTypeState, modalState };
+const recentState = atom({
+  key: "recent",
+  default: getRecentList(),
+});
+export { $State, upperTypeState, lowerTypeState, modalState, recentState };

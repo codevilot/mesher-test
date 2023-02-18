@@ -23,10 +23,17 @@ export function Upper() {
     setDollar(
       toFix(upperInput.current.value * data.data[token[upperType]].usd)
     );
-
+  useEffect(() => {
+    if (isLoading) return;
+    setDollar(
+      toFix(upperInput.current.value * data.data[token[upperType]].usd)
+    );
+    console.log(upperType);
+  }, [upperType]);
   useEffect(() => {
     if (isLoading) return;
     upperInput.current.value = toFix(dollar / data.data[token[upperType]].usd);
+    console.log(dollar, upperType);
   }, [dollar]);
   return (
     <div className="swap-input">
