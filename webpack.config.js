@@ -29,21 +29,14 @@ export default (env, argv) => {
           use: ["babel-loader", "ts-loader"],
         },
         {
-          test: /\.s?css$/, // .css 또는 scss로 끝나는 파일 인식
-          use: [
-            "style-loader", // html에 삽입해주는 역할
-            "css-loader", // 먼저 해석됨. js에서 css에서 인식하도록 해석
-            "postcss-loader", // 공급업체 접두사 적용
-            "sass-loader", // 가장 먼저 해석됨. js에서 scss에서 인식하도록 해석
-          ],
+          test: /\.s?css$/,
+          use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
         },
       ],
     },
     plugins: [
       new CopyPlugin({
-        patterns: [
-          { from: "public/style.css" }, // 번들링 결과물에 스태틱 파일을 포함시킴
-        ],
+        patterns: [{ from: "public/style.css" }],
       }),
       new webpack.ProvidePlugin({
         React: "react",
