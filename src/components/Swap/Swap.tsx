@@ -1,12 +1,12 @@
 import { Setting } from "./Setting";
 import { Calculator } from "./Calculator";
-import { Alert } from "./Alert";
+import { Action } from "./Action";
 export function Swap() {
   return (
     <div className="swap">
       <Header />
       <Calculator />
-      <Alert />
+      <Action />
     </div>
   );
 }

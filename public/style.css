@@ -73,12 +73,20 @@ input {
   content: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg' class='sc-3zewi2-8 MZuqQ'%3E%3Cpath d='M0.97168 1L6.20532 6L11.439 1' stroke='%23AEAEAE'%3E%3C/path%3E%3C/svg%3E");
 }
 .swap-alert {
-  background-color: #222429;
   margin-top: 10px;
   text-align-last: center;
   padding: 20px 0px;
   border-radius: 20px;
+  background-color: #222429;
   color: grey;
+}
+.swap-action {
+  margin-top: 10px;
+  text-align-last: center;
+  padding: 20px 0px;
+  border-radius: 20px;
+  background-color: #3a70dd;
+  color: white;
 }
 
 .modal-background {

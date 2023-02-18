@@ -1,9 +1,12 @@
 import { useRecoilValue } from "recoil";
 import { $State } from "../../util/store";
-export function Alert() {
+export function Action() {
   const dollar = useRecoilValue($State);
-  console.log(dollar);
   return dollar === 0 ? (
     <div className="swap-alert">금액을 입력하세요</div>
-  ) : null;
+  ) : (
+    <div className="swap-action" onClick={() => alert("준비 중입니다.")}>
+      스왑
+    </div>
+  );
 }
