@@ -1,3 +1,17 @@
+import { Setting } from "./Setting";
+
 export function Swap() {
-  return <h2>Swap</h2>;
+  return (
+    <div className="swap">
+      <Header />
+    </div>
+  );
+}
+function Header() {
+  return (
+    <div className="swap-title">
+      <h1>스왑</h1>
+      <Setting />
+    </div>
+  );
 }
