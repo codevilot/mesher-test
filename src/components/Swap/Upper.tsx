@@ -16,6 +16,10 @@ export function Upper() {
       axios.get(
         `https://api.coingecko.com/api/v3/simple/price?vs_currencies=USD&ids=${token[upperType]}`
       ),
+    onSuccess: (data) =>
+      setDollar(
+        toFix(upperInput.current.value * data.data[token[upperType]].usd)
+      ),
     staleTime: 5000,
     cacheTime: Infinity,
   });
@@ -23,17 +27,10 @@ export function Upper() {
     setDollar(
       toFix(upperInput.current.value * data.data[token[upperType]].usd)
     );
-  useEffect(() => {
-    if (isLoading) return;
-    setDollar(
-      toFix(upperInput.current.value * data.data[token[upperType]].usd)
-    );
-    console.log(upperType);
-  }, [upperType]);
+
   useEffect(() => {
     if (isLoading) return;
     upperInput.current.value = toFix(dollar / data.data[token[upperType]].usd);
-    console.log(dollar, upperType);
   }, [dollar]);
   return (
     <div className="swap-input">

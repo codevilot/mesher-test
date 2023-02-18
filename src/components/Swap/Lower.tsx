@@ -27,7 +27,7 @@ export function Lower() {
   useEffect(() => {
     if (isLoading) return;
     lowerInput.current.value = toFix(dollar / data.data[token[lowerType]].usd);
-  }, [dollar, lowerType]);
+  }, [dollar]);
   return (
     <div className="swap-input">
       <div className="swap-number-info">
