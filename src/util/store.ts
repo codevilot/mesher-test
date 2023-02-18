@@ -20,8 +20,27 @@ const modalState = atom({
   key: "modal",
   default: null,
 });
+
 const recentState = atom({
   key: "recent",
   default: getRecentList(),
 });
-export { $State, upperTypeState, lowerTypeState, modalState, recentState };
+
+const upperAmountState = atom({
+  key: "upperAmount",
+  default: 0,
+});
+
+const lowerAmountState = atom({
+  key: "lowerAmount",
+  default: 0,
+});
+export {
+  $State,
+  upperTypeState,
+  lowerTypeState,
+  modalState,
+  recentState,
+  upperAmountState,
+  lowerAmountState,
+};

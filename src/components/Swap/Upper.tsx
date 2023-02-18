@@ -3,11 +3,17 @@ import { useQuery } from "react-query";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { useEffect, useRef } from "react";
 import { token } from "../../util/token";
-import { $State, upperTypeState, modalState } from "../../util/store";
+import {
+  $State,
+  upperTypeState,
+  modalState,
+  upperAmountState,
+} from "../../util/store";
 import { toFix } from "../../util/toFix";
 export function Upper() {
   const [dollar, setDollar] = useRecoilState($State);
   const [_modal, setModal] = useRecoilState(modalState);
+  const [_upperAmount, setUpperAmount] = useRecoilState(upperAmountState);
   const upperType = useRecoilValue(upperTypeState);
   const upperInput = useRef(null);
   const { data, isLoading } = useQuery({
@@ -30,16 +36,16 @@ export function Upper() {
 
   useEffect(() => {
     if (isLoading) return;
-    upperInput.current.value = toFix(
-      dollar / data.data[token[upperType]].usd
-    ).toFixed(10);
+    const upperValue = toFix(dollar / data.data[token[upperType]].usd);
+    upperInput.current.value = upperValue;
+    setUpperAmount(Number(upperValue));
   }, [dollar]);
   return (
     <div className="swap-input">
       <div className="swap-number-info">
         <input placeholder="0" onChange={inputEvent} ref={upperInput} />
         <div className="swap-converted">
-          {isLoading || dollar === 0 ? "" : `$${dollar.toFixed(10)}`}
+          {isLoading || dollar === 0 ? "" : `$${dollar}`}
         </div>
       </div>
       <span className="swap-type" onClick={() => setModal("upper")}>

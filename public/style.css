@@ -46,6 +46,12 @@ input[type="number"] {
 .swap-body {
   position: relative;
 }
+.swap-compare {
+  text-align: center;
+}
+.swap-compare-dollar {
+  opacity: 0.5;
+}
 .swap-switch {
   position: absolute;
   top: 50%;
