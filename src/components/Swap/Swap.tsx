@@ -1,9 +1,10 @@
 import { Setting } from "./Setting";
-
+import { Calculator } from "./Calculator";
 export function Swap() {
   return (
     <div className="swap">
       <Header />
+      <Calculator />
     </div>
   );
 }
