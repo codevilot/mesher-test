@@ -1,4 +1,4 @@
-import { atom, selector } from "recoil";
+import { atom } from "recoil";
 import { ids } from "./token";
 const $State = atom({
   key: "$State",
